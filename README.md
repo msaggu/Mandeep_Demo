@@ -19,6 +19,7 @@ To run the Playwright tests locally, follow these steps:
     ```sh
     BASE_URL=<domain>  EMAIL=<email>  PASSWORD=<password>  npm run test
     ```
+    If we see Approve new device page, we need to manually approve the device from the email within few seconds. Otherwise, test can timeout and fail as the total execution test time is 30 seconds. 
 
 3. **View Test Report**:
     After the tests have run, you can view the test report by opening the generated HTML report:
