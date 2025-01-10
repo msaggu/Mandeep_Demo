@@ -1,5 +1,9 @@
 # Mandeep_Demo
 
+## Tech Stack
+### Language: Typescript
+### Testing libraries: Playwright
+
 ## Running Playwright Tests -- Local 
 
 To run the Playwright tests locally, follow these steps:
@@ -25,8 +29,15 @@ To run the Playwright tests locally, follow these steps:
 ## Running Playwright Tests -- Github Actions
 
 To run the Playwright tests locally, follow these steps:
+1. **Create environment variables**:
+    Created BASE_URL as an environment variable
+    Created EMAIL & PASSWORD as an environment secret
 
-1. **Run Tests**:
+    ***Github environment - prod && dev url***
+    https://github.com/msaggu/Mandeep_Demo/settings/environments
+    NOTE: Currently, environemnt variables and secret are same for both dev and prod environment. Please change the values as needed. 
+
+2. **Run Tests**:
     Navigate to the url: 
     ```sh
     https://github.com/msaggu/Mandeep_Demo/actions/workflows/e2e.yml

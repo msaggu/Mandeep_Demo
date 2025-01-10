@@ -8,10 +8,6 @@ test.beforeEach(async ({page}) => {
 test('check portfolio value', async ({page}) => {
     const pageManager = new PageManager(page);
     await pageManager.onStarterPage().loginToSite(process.env.EMAIL ?? '', process.env.PASSWORD ?? '');
-
-    //checking if the user has landed on the dashboard page after successful login
-    expect(await pageManager.onDashboardPage().dashboardLandingPageCheck()).toEqual('Home'); 
-    
-    //checking the portfolio value
-    expect(await pageManager.onDashboardPage().portfolioValueCheck()).toEqual('0.00');
+    await pageManager.onDashboardPage().dashboardLandingPageCheck(); 
+    await expect(await pageManager.onDashboardPage().getPortfolioValue()).toHaveText('0.00');
 })
