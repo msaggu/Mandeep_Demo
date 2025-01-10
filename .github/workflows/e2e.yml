@@ -10,6 +10,8 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    environment: 
+      name: ${{inputs.env}}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -18,7 +20,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+      run: npx playwright install chromium
     - name: Run Playwright tests
       run: BASE_URL=${{vars.BASE_URL}} EMAIL=${{secrets.EMAIL}} PASSWORD=${{secrets.PASSWORD}} npm run test
     - uses: actions/upload-artifact@v4
