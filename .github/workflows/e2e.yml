@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
     inputs:
         env:
+            type: choice
             options:
                 - "prod"
 jobs:
@@ -19,7 +20,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test
+      run: BASE_URL=${{vars.BASE_URL}} EMAIL=${{secrets.EMAIL}} PASSWORD=${{secrets.PASSWORD}} npm run test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
