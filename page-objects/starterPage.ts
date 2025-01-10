@@ -1,7 +1,7 @@
 import{Page, Locator} from "@playwright/test";
 
 /**
- * Represents the Starter Page object model.
+ * Represents the Starter/Homepage page prior to login.
  */
 export class StarterPage {
     readonly page: Page;
